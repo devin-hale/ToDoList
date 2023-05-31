@@ -5,9 +5,13 @@ export class Project {
         this.pLabel = label;
         this.pColor = color;
         this.pDescription = description;
+        this.tasks = [];
     }
-    // Task storage for individual projects.
-    tasks = [];
+
+    addTask(taskName, date, priority, notes) {
+        let newTask = {taskName: taskName, date: date, priority: priority, notes: notes}
+        this.tasks.push(newTask)
+    }
 
     //Global storage of all projects.
     static pLibrary = [];

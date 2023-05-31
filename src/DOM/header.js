@@ -11,6 +11,7 @@ headerDiv.classList = 'header';
 // Menu Icon
 let navMenu = document.createElement('i');
 navMenu.classList = 'fa-solid fa-bars navIcon';
+navMenu.id = 'navIcon'
 headerDiv.appendChild(navMenu);
 
 //Make Header Text

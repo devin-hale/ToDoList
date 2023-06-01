@@ -9,6 +9,11 @@ body {
     background-color: white;
 }
 
+#content {
+    font-family: 'Pacifico', cursive;
+    color: white;
+}
+
 
 .header {
     display: flex;
@@ -18,31 +23,23 @@ body {
     min-width: 200px;
     justify-content: space-between;
     background-color: #3a4144;
-    font-family: 'Pacifico', cursive;
-    color: white;
     font-size: 35px;
     padding: 5px;
     text-shadow: 3px 2px 5px #20292ed8;
     box-shadow: 0px 0px 5px black;
 }
 
-.header > p
-
 #navIcon, .ghub {
     font-size: 50px;
     cursor: pointer;
-    padding: 10px;
+    padding: 15px;
     transition: .1s;
     transition-timing-function: ease-out;
 }
 
-#navIcon::before {
-    cursor: pointer;
-}
-
-.navIcon:active {
-    font-size: 30px;
-    padding-left: 5px;
+#navIcon:active {
+    font-size: 45px;
+    padding-left: 20px;
     transition: .05s;
 }
 
@@ -62,7 +59,38 @@ body {
     left: 0;
     background-color: #3a4144; /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
     transition: 0.15s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+#navHText {
+    font-size: 30px;
+    padding-left: 10px;
+}
+
+#navBack {
+    font-size: 30px;
+    padding-right: 25px;
+    cursor: pointer;
+}
+
+#navBack:active {
+    font-size: 25px;
+    padding-right: 30px;
+}
+
+.sideHeader {
+    transition: .15s;
+    font-size: 20px;
+    text-shadow: 3px 2px 5px #20292ed8;
+    display: flex;
+    font-family: 'Noto Sans', 'sans serif';
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    box-shadow: 0px 0px 20px rgb(0, 0, 0);
+
 }
 

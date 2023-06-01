@@ -1,4 +1,3 @@
-import { navItemRender } from "../navMenu";
 import { Project } from "../../LOGIC/projects";
 
 const renderNewProject = () => {
@@ -22,24 +21,23 @@ const renderNewProject = () => {
     //Project Name Box
     let projectText = document.createElement('input');
     projectText.type = 'text'
-    projectText.classList = 'projectText';
+    projectText.minLength = 1;
+    projectText.maxLength = 20;
+    projectText.classList = 'projectText pTextInput';
     projectText.value = newProj.pName;
     projectDiv.appendChild(projectText)
-        
 
     //Edit Icon
     let projectEdit = document.createElement('i');
     projectEdit.classList = 'fa-solid fa-square-pen';
     projectEdit.id = newProj.pId;
-    projectDiv.appendChild(projectEdit);
-
-    //Append
-    sideMenu.appendChild(projectDiv);
-    projectText.focus();
 
     //Listener to Change Name and Save on Enter or Click Out
     projectText.addEventListener('keydown', event => {
         if (event.key === 'Enter') {
+            if(projectText.value.length < 1) {
+                return
+            }
             enterKeyPressed = true;
             const paragraph = document.createElement('p');
             projectDiv.appendChild(paragraph);
@@ -55,6 +53,9 @@ const renderNewProject = () => {
         if (enterKeyPressed === true) {
             return
             }
+        if(projectText.value.length < 1) {
+                return
+        }
             const paragraph = document.createElement('p');
             projectDiv.appendChild(paragraph);
             paragraph.classList = 'projectText';
@@ -66,6 +67,11 @@ const renderNewProject = () => {
 
 
     })
+        
+
+    //Append
+    sideMenu.insertBefore(projectDiv, sideMenu.lastChild);
+    projectText.focus();
 };
 
 export default renderNewProject;

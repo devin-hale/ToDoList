@@ -136,7 +136,7 @@ body {
 }
 
 p.projectText {
-    font-size: 20px;
+    font-size: auto;
     justify-self: left;
 }
 
@@ -160,41 +160,20 @@ p.projectText {
     transition: .05s;
 }
 
-/* MODAL STUFF */
+/* EDIT STUFF */
 
-.modalBKG {
-    width: 100%;
-    height: 100%;
-    position: fixed; /* Stay in place */
-    background-color: rgba(0, 0, 0, 0.582);
-    z-index: 3; /* Stay on top */
-    top: 0; /* Stay at the top */
-    left: 0;
-    opacity: 0;
-    transition: .05s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.modalBKG.show {
-    opacity: 1;
-    transition: .5s;
-}
-
-.modalWindow {
-    width: 200px;
-    height: 200px;
-    position: fixed;
-    background-color: #3a4144;
-    z-index: 4;
-    opacity: 0;
-    transition: .05s;
-}
-
-.modalWindow.show {
-    opacity: 1;
-    transition: .5s;
+.pTextInput {
+    font-size: 20px;
+    padding-left: 5px;
+    margin-left: 5px;
+    border: 0px;
+    outline: none;
+    color: white;
+    border-radius: 10px;
+    max-width: 180px;
+    justify-self: left;
+    font-family: 'Noto Sans', 'sans serif';
+    background-color: rgb(179, 75, 75);
 }
 
 

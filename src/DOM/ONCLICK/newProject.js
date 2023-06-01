@@ -1,4 +1,5 @@
 import { Project } from "../../LOGIC/projects";
+import editProjectButton from "./editProject";
 
 const renderNewProject = () => {
     let newProj = new Project('New Project');
@@ -31,6 +32,7 @@ const renderNewProject = () => {
     let projectEdit = document.createElement('i');
     projectEdit.classList = 'fa-solid fa-square-pen';
     projectEdit.id = newProj.pId;
+    projectEdit.addEventListener('click', a => editProjectButton(a))
 
     //Listener to Change Name and Save on Enter or Click Out
     projectText.addEventListener('keydown', event => {

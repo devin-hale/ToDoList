@@ -155,6 +155,10 @@ p.projectText {
     background-color: rgba(114, 114, 114, 0);
 }
 
+#projectAdd:hover {
+    background-color: rgba(114, 114, 114, 0.308);
+}
+
 #projectAdd:active{
     background-color: rgb(255, 255, 255);
     transition: .05s;

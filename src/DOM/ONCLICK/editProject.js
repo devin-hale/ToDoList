@@ -13,6 +13,7 @@ const editProjectButton = (event) => {
     let projectEdit = document.createElement('i');
     projectEdit.classList = 'fa-solid fa-square-pen';
     projectEdit.id = Proj.pId;
+    projectEdit.addEventListener('click', a => editProjectButton(a))
 
     //Edit Input
     let projectInput = document.createElement('input');

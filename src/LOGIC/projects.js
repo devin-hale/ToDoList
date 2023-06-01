@@ -1,10 +1,7 @@
 export class Project {
-    constructor(name, icon, label, color, description) {
+    constructor(name) {
         this.pName = name;
-        this.pIcon = icon;
-        this.pLabel = label;
-        this.pColor = color;
-        this.pDescription = description;
+        this.pId = Project.pLibraryIndex += 1;
         this.tasks = [];
     }
 
@@ -12,6 +9,8 @@ export class Project {
         let newTask = {taskName: taskName, date: date, priority: priority, notes: notes}
         this.tasks.push(newTask)
     }
+
+    static pLibraryIndex = 0;    
 
     //Global storage of all projects.
     static pLibrary = [];

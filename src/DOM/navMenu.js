@@ -119,6 +119,8 @@ const newProjectButton = () => {
 
     //Append
     sideMenu.appendChild(projectAddDiv);
+
+    projectAddDiv.addEventListener('click', () => {});
 }
 
 export {navRender, navItemRender, newProjectButton};

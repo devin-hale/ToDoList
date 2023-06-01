@@ -1,4 +1,5 @@
 import {Project} from '../LOGIC/projects.js';
+import renderNewProject from './ONCLICK/newProject.js';
 
 const navRender = () => {
     const navIcon = document.getElementById('navIcon');
@@ -79,7 +80,8 @@ const navItemRender = (object) => {
 
         //Edit Icon
         let projectEdit = document.createElement('i');
-        projectEdit.classList = 'fa-solid fa-square-pen';
+        projectEdit.classList = 'fa-solid fa-square-pen edit';
+        projectEdit.id = object.pId;
         projectDiv.appendChild(projectEdit);
 
         //Append
@@ -120,7 +122,7 @@ const newProjectButton = () => {
     //Append
     sideMenu.appendChild(projectAddDiv);
 
-    projectAddDiv.addEventListener('click', () => {});
+    projectAddDiv.addEventListener('click', () => {renderNewProject()});
 }
 
 export {navRender, navItemRender, newProjectButton};

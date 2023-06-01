@@ -6,7 +6,9 @@ import {navRender, navItemRender, newProjectButton} from './DOM/navMenu.js';
 renderHeader();
 navRender();
 
-Project.pushPLib(new Project('Work', 'bleh', 'a', 'color', 'This is my project'))
+let loadedProj = new Project('Work')
+
+Project.pushPLib(loadedProj)
 console.log(Project.getPLib()[0])
 navItemRender(Project.getPLib()[0]);
 newProjectButton();

@@ -1,5 +1,5 @@
 export class Project {
-    constructor(name, icon, label, color, description ) {
+    constructor(name, icon, label, color, description) {
         this.pName = name;
         this.pIcon = icon;
         this.pLabel = label;

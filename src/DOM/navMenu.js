@@ -94,4 +94,31 @@ const navItemRender = (object) => {
     sideMenu.appendChild(errorText)
 };
 
-export {navRender, navItemRender};
+const newProjectButton = () => {
+    const sideMenu = document.getElementById('sideMenu');
+
+    let projectAddDiv = document.createElement('div');
+    projectAddDiv.classList = "sideItem";
+    projectAddDiv.id = 'projectAdd'
+        
+     //Dot Marker
+    let projectMarker = document.createElement('i');
+    projectMarker.classList = 'fa-solid fa-circle';
+    projectAddDiv.appendChild(projectMarker);
+
+    //Project Name
+    let projectText = document.createElement('p');
+    projectText.classList = 'projectText';
+    projectText.innerHTML = 'New Project';
+    projectAddDiv.appendChild(projectText)
+
+    //Edit Icon
+    let projectAdd = document.createElement('i');
+    projectAdd.classList = 'fa-solid fa-plus';
+    projectAddDiv.appendChild(projectAdd);
+
+    //Append
+    sideMenu.appendChild(projectAddDiv);
+}
+
+export {navRender, navItemRender, newProjectButton};

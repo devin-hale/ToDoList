@@ -14,6 +14,7 @@ body {
     color: white;
 }
 
+/* HEADER STUFF */
 
 .header {
     font-family: 'Pacifico', cursive;
@@ -49,6 +50,8 @@ body {
     transition: .1s;
     transition-timing-function: ease-out;
 }
+
+/* NAV MENU STUFF */
 
 .sMenuOverlay {
     height: 100vh;
@@ -103,12 +106,13 @@ body {
     align-items: center;
     padding-bottom: 20px;
     padding-top: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     box-shadow: 0px 0px 20px rgb(0, 0, 0);
 
 }
 
 .sideItem {
+    margin: 5px;
     background-color: rgb(199, 97, 97);
     border-color: black;
     width: 90%;
@@ -127,7 +131,7 @@ body {
 }
 
 .sideItem:active{
-    background-color: rgb(255, 159, 159);
+    background-color: rgb(255, 255, 255);
     transition: .05s;
 }
 
@@ -139,5 +143,25 @@ p.projectText {
 .fa-square-pen {
     font-size: 25px;
     cursor: pointer;
+    transition: .05s;
 }
+
+.fa-square-pen:hover {
+    font-size: 26px;
+    transition: .05s;
+}
+
+#projectAdd {
+    background-color: rgba(114, 114, 114, 0);
+}
+
+#projectAdd:active{
+    background-color: rgb(255, 255, 255);
+    transition: .05s;
+}
+
+/* MODAL STUFF */
+
+
+
 

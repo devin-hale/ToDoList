@@ -1,10 +1,12 @@
 import { Project } from "../../LOGIC/projects";
 import editProjectButton from "./editProject";
+import taskViewRender from "../Main Page/taskView";
 
-const renderNewProject = () => {
+const renderNewProject = (object) => {
     let newProj = new Project('New Project');
     Project.pushPLib(newProj);
-    console.log(Project.getPLib())
+    const localPData = JSON.stringify(Project.getPLib());
+    localStorage.setItem('localProjectData', localPData );
 
     const sideMenu = document.getElementById('sideMenu');
     
@@ -13,6 +15,16 @@ const renderNewProject = () => {
     //Div
     let projectDiv = document.createElement('div');
     projectDiv.classList = "sideItem";
+    projectDiv.id = newProj.pId;
+
+            projectDiv.addEventListener('click', ebent => {
+                let targetProj = Project.getPLib()[ebent.target.id-1];
+                if (object == targetProj) {console.log('Project the Same');return}
+                document.getElementById('taskView').remove();
+                taskViewRender(targetProj);
+                var loadedObject = targetProj;
+
+            })
         
     //Dot Marker
     let projectMarker = document.createElement('i');
@@ -32,7 +44,9 @@ const renderNewProject = () => {
     let projectEdit = document.createElement('i');
     projectEdit.classList = 'fa-solid fa-square-pen';
     projectEdit.id = newProj.pId;
-    projectEdit.addEventListener('click', a => editProjectButton(a))
+    projectEdit.addEventListener('click', a => 
+    {if (a.target === projectEdit) {editProjectButton(a)}}
+    )
 
     //Listener to Change Name and Save on Enter or Click Out
     projectText.addEventListener('keydown', event => {
@@ -48,6 +62,8 @@ const renderNewProject = () => {
             newProj.pName = event.target.value;
             event.target.remove();
             projectDiv.appendChild(projectEdit);
+            const localPData = JSON.stringify(Project.getPLib());
+            localStorage.setItem('localProjectData', localPData );
         }
     })
 
@@ -66,6 +82,8 @@ const renderNewProject = () => {
             event.target.remove();
             projectDiv.appendChild(projectEdit);
             enterKeyPressed = false;
+            const localPData = JSON.stringify(Project.getPLib());
+            localStorage.setItem('localProjectData', localPData );
 
 
     })

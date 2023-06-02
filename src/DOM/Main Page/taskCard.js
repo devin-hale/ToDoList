@@ -1,7 +1,12 @@
 import expandTask from "./taskExpand";
+import editTaskName from "./editTaskName";
+import { Project } from "../../LOGIC/projects";
 
 const renderTasks = (projTask) => {
     let taskView = document.getElementById('taskContainer');
+
+    let editFlag;
+    let enterKeyPressed = false;
 
     //Div Card
     let taskCardDiv = document.createElement('div');
@@ -18,9 +23,13 @@ const renderTasks = (projTask) => {
     taskDHeader.appendChild(taskCard_Name);
 
     //Task Name Editor
-    let taskNameEdit = document.createElement('i')
-    taskNameEdit.classList = 'fa-solid fa-square-pen taskNameEdit'
+    let taskNameEdit = document.createElement('i');
+    taskNameEdit.classList = 'fa-solid fa-square-pen taskNameEdit';
     taskDHeader.appendChild(taskNameEdit);
+
+        taskNameEdit.addEventListener('click', clickE => {
+            editTaskName(editFlag, enterKeyPressed, taskCard_Name, taskDHeader, projTask);
+        })
 
     //Priority
     let taskPrio = document.createElement('i');
@@ -47,6 +56,8 @@ const renderTasks = (projTask) => {
     completeTask.addEventListener('click', a => {
         projTask.completed = true;
         a.target.parentNode.parentNode.remove();
+        const localPData = JSON.stringify(Project.getPLib());
+        localStorage.setItem('localProjectData', localPData);
     })
 
 

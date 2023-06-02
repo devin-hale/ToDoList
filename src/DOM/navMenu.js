@@ -1,6 +1,7 @@
 import {Project} from '../LOGIC/projects.js';
 import renderNewProject from './ONCLICK/newProject.js';
 import editProjectButton from './ONCLICK/editProject.js';
+import taskViewRender from './Main Page/taskView.js';
 
 const navRender = () => {
     const navIcon = document.getElementById('navIcon');
@@ -57,7 +58,6 @@ const navRender = () => {
 const navItemRender = (object) => {
     // Get index of passed object in the global array of projects.
     const projIndex = Project.getPLib().indexOf(object)
-    console.log(projIndex);
 
 
     const sideMenu = document.getElementById('sideMenu');
@@ -67,6 +67,15 @@ const navItemRender = (object) => {
         //Div
         let projectDiv = document.createElement('div');
         projectDiv.classList = "sideItem";
+        projectDiv.id = object.pId;
+
+            projectDiv.addEventListener('click', ebent => {
+                let targetProj = Project.getPLib()[ebent.target.id-1];
+                if (object == targetProj) {console.log('Project the Same');return}
+                document.getElementById('taskView').remove();
+                taskViewRender(object);
+
+            })
         
         //Dot Marker
         let projectMarker = document.createElement('i');

@@ -1,4 +1,5 @@
 import { Project } from "../../LOGIC/projects";
+import taskViewRender from "../Main Page/taskView";
 
 const editProjectButton = (event) => {
     const Proj = Project.getPLib()[Project.getPLib().findIndex(a => a.pId == event.target.id)];
@@ -13,7 +14,9 @@ const editProjectButton = (event) => {
     let projectEdit = document.createElement('i');
     projectEdit.classList = 'fa-solid fa-square-pen';
     projectEdit.id = Proj.pId;
-    projectEdit.addEventListener('click', a => editProjectButton(a))
+    projectEdit.addEventListener('click', a => 
+        {if (a.target === projectEdit) {editProjectButton(a)}}
+    )
 
     //Edit Input
     let projectInput = document.createElement('input');
@@ -39,6 +42,8 @@ const editProjectButton = (event) => {
             Proj.pName = event.target.value;
             event.target.remove();
             projectDiv.appendChild(projectEdit);
+            const localPData = JSON.stringify(Project.getPLib());
+            localStorage.setItem('localProjectData', localPData );
         }
     })
 
@@ -57,6 +62,8 @@ const editProjectButton = (event) => {
             event.target.remove();
             projectDiv.appendChild(projectEdit);
             enterKeyPressed = false;
+            const localPData = JSON.stringify(Project.getPLib());
+            localStorage.setItem('localProjectData', localPData );
         })
 
     

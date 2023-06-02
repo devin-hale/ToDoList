@@ -224,6 +224,11 @@ p.projectText {
     max-height: fit-content;
 }
 
+.taskName {
+    max-width: 100px;
+    overflow-x: hidden;
+}
+
 .taskDHeader {
     display: flex;
     flex-direction: row;
@@ -336,4 +341,44 @@ textarea {
 
 .taskNameEdit:hover {
     font-size: 15px;
+}
+
+.nameEditInput {
+    max-width: 160px;
+    z-index: 1;
+    padding-left: 5px;
+    position: absolute;
+    height: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    font-family: 'Noto Sans', 'sans serif';
+    font-weight: 600;
+    border: 0px;
+    outline: none;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.651);
+}
+
+.nameEditInput:focus {
+    border: 0px;
+    outline: none;
+}
+
+#addTask {
+    color: rgb(36, 187, 36);
+    text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.651);
+    font-size: 50px;
+    position: fixed;
+    cursor: pointer;
+    bottom: 20px;
+    right: 20;
+    transition: .2s;
+}
+
+#addTask:hover {
+    font-size: 51px;
+    transition: .2s;
+}
+
+#addTask:active {
+    font-size: 49px;
 }

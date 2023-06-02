@@ -1,3 +1,5 @@
+import { Project } from "../../LOGIC/projects";
+
 const taskDueDate = (expDetails, projTask) => {
 
 
@@ -16,7 +18,11 @@ const taskDueDate = (expDetails, projTask) => {
     
     expDetails.appendChild(taskDateDiv);
 
-    taskDateInput.addEventListener('change', a => {projTask.date = a.target.value; console.log(projTask)})
+    taskDateInput.addEventListener('change', a => {
+        projTask.date = a.target.value;
+        const localPData = JSON.stringify(Project.getPLib());
+        localStorage.setItem('localProjectData', localPData );
+    })
 
 }
 

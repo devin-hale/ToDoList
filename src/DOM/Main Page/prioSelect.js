@@ -1,3 +1,5 @@
+import { Project } from "../../LOGIC/projects";
+
 const renderPrioSelect = (expDetails, projTask) => {
 
     let taskPrioSelect = document.createElement('div');
@@ -16,6 +18,8 @@ const renderPrioSelect = (expDetails, projTask) => {
         prioSelectLow.addEventListener('click', () => {
             projTask.priority = 'Low';
             document.getElementById(`task=${projTask.tID}`).style.color = '#a3e635';
+            const localPData = JSON.stringify(Project.getPLib());
+            localStorage.setItem('localProjectData', localPData );
         })
 
     let prioSelectMid = document.createElement('button');
@@ -26,6 +30,9 @@ const renderPrioSelect = (expDetails, projTask) => {
         prioSelectMid.addEventListener('click', () => {
             projTask.priority = 'Mid';
             document.getElementById(`task=${projTask.tID}`).style.color = '#fcd34d';
+            document.getElementById(`task=${projTask.tID}`).style.color = '#a3e635';
+            const localPData = JSON.stringify(Project.getPLib());
+            localStorage.setItem('localProjectData', localPData );
         })
 
     let prioSelectHigh = document.createElement('button');
@@ -36,6 +43,9 @@ const renderPrioSelect = (expDetails, projTask) => {
         prioSelectHigh.addEventListener('click', () => {
             projTask.priority = 'High';
             document.getElementById(`task=${projTask.tID}`).style.color = '#ef4444';
+            document.getElementById(`task=${projTask.tID}`).style.color = '#a3e635';
+            const localPData = JSON.stringify(Project.getPLib());
+            localStorage.setItem('localProjectData', localPData );
         })
 
 

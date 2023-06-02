@@ -1,3 +1,5 @@
+import { Project } from "../../LOGIC/projects";
+
 const renderTaskNotes = (expDetails, projTask) => {
     let taskNotesDiv = document.createElement('div');
     taskNotesDiv.classList = 'taskNotesDiv';
@@ -16,7 +18,10 @@ const renderTaskNotes = (expDetails, projTask) => {
     
     expDetails.appendChild(taskNotesDiv);
 
-    taskNotesInput.addEventListener('change', a => {projTask.notes = a.target.value; console.log(projTask)})
+    taskNotesInput.addEventListener('change', a => {projTask.notes = a.target.value;
+        const localPData = JSON.stringify(Project.getPLib());
+        localStorage.setItem('localProjectData', localPData );
+    })
 }
 
 export default renderTaskNotes;

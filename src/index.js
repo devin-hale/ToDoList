@@ -14,7 +14,7 @@ Project.getPLib()[0].addTask('Do Work', '2023-02-06', 'Low', 'wacky')
 Project.getPLib()[0].addTask('Do Work', '2023-07-06', 'High', 'wacky')
 Project.getPLib()[0].addTask('Do Work', '2023-010-06', 'Mid', 'wacky')
 Project.getPLib()[0].addTask('Do Work', '2023-05-07', 'Low', 'wacky')
-console.log(Project.getPLib()[0])
+console.log(Project.getPLib())
 navItemRender(Project.getPLib()[0]);
-newProjectButton();
-renderMainView(Project.getPLib()[0]);
+newProjectButton(loadedProj);
+renderMainView(loadedProj);

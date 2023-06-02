@@ -6,7 +6,7 @@ export class Project {
     }
 
     addTask(taskName, date, priority, notes) {
-        let newTask = {taskName: taskName, date: date, priority: priority, notes: notes}
+        let newTask = {taskName: taskName, date: date, priority: priority, notes: notes, completed: false}
         this.tasks.push(newTask)
     }
 

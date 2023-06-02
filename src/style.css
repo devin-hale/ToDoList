@@ -180,4 +180,39 @@ p.projectText {
     background-color: rgb(179, 75, 75);
 }
 
+/* TASKVIEW STUFF */
 
+
+#taskView {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: clamp(345px, 75%, 900px);
+}
+
+.projectHText {
+    margin: 10px;
+    padding: 10px;
+    width: 100%;
+    font-size: 25px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgb(199, 97, 97);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.651);
+    text-shadow: 3px 2px 5px #20292ed8;
+}
+
+#taskContainer {
+    width: 100%;
+    display: grid;
+    grid-template: repeat(auto-fill, 100px) / repeat(auto-fit, minmax(200px, 1fr));
+    gap: 5px
+}
+
+.taskCard {
+    color: #3a4144;
+    font-weight:600;
+    border: 1px solid black;
+}

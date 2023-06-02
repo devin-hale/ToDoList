@@ -1,3 +1,5 @@
+import expandTask from "./taskExpand";
+
 const renderTasks = (projTask) => {
     let taskView = document.getElementById('taskContainer');
 
@@ -5,29 +7,43 @@ const renderTasks = (projTask) => {
     let taskCardDiv = document.createElement('div');
     taskCardDiv.classList = 'taskCard';
 
+    let taskDHeader = document.createElement('div');
+    taskDHeader.classList = 'taskDHeader';
+    taskCardDiv.appendChild(taskDHeader);
+
     //Task Name
     let taskCard_Name = document.createElement('p');
     taskCard_Name.classList = 'taskName';
     taskCard_Name.innerHTML = `${projTask.taskName}`;
-    taskCardDiv.appendChild(taskCard_Name);
-
-    //Due Date
-    let taskDate = document.createElement('p');
-    taskDate.classList = 'taskDate';
-    taskDate.innerHTML = `Due: ${projTask.date}`
-    taskCardDiv.appendChild(taskDate);
+    taskDHeader.appendChild(taskCard_Name);
 
     //Priority
-    let taskPrio = document.createElement('p');
-    taskPrio.classList = 'taskPrio';
-    taskPrio.innerHTML = `${projTask.priority}`;
-    taskCardDiv.appendChild(taskPrio);
+    let taskPrio = document.createElement('i');
+    switch (projTask.priority) {
+        case 'Low':
+            taskPrio.style.color = '#a3e635';
+            break;
+        case 'Mid':
+            taskPrio.style.color = '#fcd34d';
+            break;
+        case 'High':
+            taskPrio.style.color = '#ef4444';
+            break;
+    }
+    taskPrio.classList = 'fa-solid fa-circle taskPrio';
+    taskDHeader.appendChild(taskPrio);
 
-    //Notes
-    let taskNotes = document.createElement('p');
-    taskNotes.classList = 'taskNotes';
-    taskNotes.innerHTML = `Notes: ${projTask.notes}`;
-    taskCardDiv.appendChild(taskNotes);
+    //Expand
+    let taskExpand = document.createElement('i');
+    taskExpand.classList = 'fa-solid fa-caret-down taskExpand';
+    taskDHeader.appendChild(taskExpand);
+
+    taskExpand.addEventListener('click', (event) => {
+        expandTask(event, projTask);
+    })
+
+    
+
 
 
 

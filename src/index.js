@@ -10,10 +10,10 @@ navRender();
 let loadedProj = new Project('Work')
 
 Project.pushPLib(loadedProj)
-Project.getPLib()[0].addTask('Do Work', 'Tomorrow', 'Low Priority', 'wacky')
-Project.getPLib()[0].addTask('Do Work', 'Tomorrow', 'Low Priority', 'wacky')
-Project.getPLib()[0].addTask('Do Work', 'Tomorrow', 'Low Priority', 'wacky')
-Project.getPLib()[0].addTask('Do Work', 'Tomorrow', 'Low Priority', 'wacky')
+Project.getPLib()[0].addTask('Do Work', 'Tomorrow', 'Low', 'wacky')
+Project.getPLib()[0].addTask('Do Work', 'Tomorrow', 'High', 'wacky')
+Project.getPLib()[0].addTask('Do Work', 'Tomorrow', 'Mid', 'wacky')
+Project.getPLib()[0].addTask('Do Work', 'Tomorrow', 'Low', 'wacky')
 console.log(Project.getPLib()[0])
 navItemRender(Project.getPLib()[0]);
 newProjectButton();

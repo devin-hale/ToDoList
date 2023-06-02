@@ -1,13 +1,18 @@
+import renderPrioSelect from "./prioSelect";
+import taskDueDate from "./taskDueDate";
+import renderTaskNotes from "./taskNotes";
+
 const expandTask = (event, projTask) => {
     let taskCardDiv = event.target.parentNode.parentNode;
-    
 
+    //Remove Expand Icon, Insert Minimize Icon
     let minimize = document.createElement('i');
     minimize.classList = 'fa-solid fa-caret-up minTask';
     event.target.parentNode.appendChild(minimize);
 
     event.target.remove();
 
+    //Event listener that Minimizes, removes Expanded Div
     minimize.addEventListener('click', (a) => {
     
         let taskExpand = document.createElement('i');
@@ -22,28 +27,19 @@ const expandTask = (event, projTask) => {
         })
     });
 
-
+    //Add Expanded Div Options
     let expDetails = document.createElement('div');
         expDetails.classList = 'expDetails';
         taskCardDiv.appendChild(expDetails);
 
         //Due Date
-        let taskDate = document.createElement('p');
-        taskDate.classList = 'taskDate';
-        taskDate.innerHTML = `Due: ${projTask.date}`
-        expDetails.appendChild(taskDate);
+        taskDueDate(expDetails, projTask)
 
         //Priority
-        let taskPrioSelect = document.createElement('p');
-        taskPrioSelect.classList = 'taskPrioSelect';
-        taskPrioSelect.innerHTML = `${projTask.priority}`;
-        expDetails.appendChild(taskPrioSelect);
+        renderPrioSelect(expDetails, projTask);
 
         //Notes
-        let taskNotes = document.createElement('p');
-        taskNotes.classList = 'taskNotes';
-        taskNotes.innerHTML = `Notes: ${projTask.notes}`;
-        expDetails.appendChild(taskNotes);
+        renderTaskNotes(expDetails, projTask);
 }
 
 export default expandTask;

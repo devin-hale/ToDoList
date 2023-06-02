@@ -10,10 +10,10 @@ navRender();
 let loadedProj = new Project('Work')
 
 Project.pushPLib(loadedProj)
-Project.getPLib()[0].addTask('Do Work', 'Tomorrow', 'Low', 'wacky')
-Project.getPLib()[0].addTask('Do Work', 'Tomorrow', 'High', 'wacky')
-Project.getPLib()[0].addTask('Do Work', 'Tomorrow', 'Mid', 'wacky')
-Project.getPLib()[0].addTask('Do Work', 'Tomorrow', 'Low', 'wacky')
+Project.getPLib()[0].addTask('Do Work', '2023-02-06', 'Low', 'wacky')
+Project.getPLib()[0].addTask('Do Work', '2023-07-06', 'High', 'wacky')
+Project.getPLib()[0].addTask('Do Work', '2023-010-06', 'Mid', 'wacky')
+Project.getPLib()[0].addTask('Do Work', '2023-05-07', 'Low', 'wacky')
 console.log(Project.getPLib()[0])
 navItemRender(Project.getPLib()[0]);
 newProjectButton();

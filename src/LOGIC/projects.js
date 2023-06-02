@@ -8,7 +8,7 @@ export class Project {
     addTask(taskName, date, priority, notes) {
         let newTask = {
             taskName: taskName,
-            tID: this.taskID +=1,
+            tID: Project.taskID +=1,
             date: date, 
             priority: priority, 
             notes: notes, 
@@ -16,9 +16,7 @@ export class Project {
         this.tasks.push(newTask)
     }
 
-    taskID = 0;
-
-
+    static taskID = 0;
 
     static pLibraryIndex = 0;    
 

@@ -244,3 +244,96 @@ p.projectText {
 .taskExpand, .minTask {
     cursor: pointer;
 }
+
+.prioSelectButton {
+    width: 45px;
+    height: 30px;
+    margin: 5px;
+    cursor: pointer;
+    outline: none;
+    border: 0px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.651);
+}
+
+.lowPrio {
+    background-color: #a3e635;
+    transition: .1s;
+}
+
+.lowPrio:hover {
+    background-color: #c2fa67;
+    transition: .1s;
+}
+
+.midPrio {
+    background-color: #fcd34d;
+    transition: .1s;
+}
+
+.midPrio:hover {
+    background-color: #ffe9a2;
+    transition: .1s;
+}
+
+.highPrio {
+    background-color: #ef4444;
+    transition: .1s;
+}
+
+.highPrio:hover {
+    background-color: #ff8f8f;
+    transition: .1s;
+}
+
+input[type='date'] {
+    background-color: rgb(199, 97, 97);
+    color: white;
+    cursor: pointer;
+    font-family: 'Noto Sans', 'sans serif';
+    outline: none;
+    border: 0px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.651);
+}
+
+::-webkit-calendar-picker-indicator{
+    background-color: #ffffff;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+input[type='date']:hover, input[type='date']:focus {
+    background-color: rgb(238, 129, 129);
+}
+
+.taskNotesDiv {
+    width: 100%;
+}
+
+textarea {
+    border: 0px;
+    width: 100%;
+    padding: 2px;
+    border-radius: 5px;
+    height: auto;
+    resize: none;
+    font-family: 'Noto Sans', 'sans serif';
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.651);
+}
+
+.completeTask {
+    cursor: pointer;
+    color: rgb(219, 67, 67);
+    font-size: 20px;
+}
+
+.taskNameEdit {
+    font-size: 15px;
+    padding-left: 5px;
+}
+
+.taskNameEdit:hover {
+    font-size: 15px;
+}

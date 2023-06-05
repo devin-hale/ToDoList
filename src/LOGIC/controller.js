@@ -4,7 +4,7 @@ import {navRender, navItemRender, newProjectButton} from '../DOM/navMenu';
 import renderMainView from '../DOM/Main Page/mainView';
 
 const findLocal = () => {
-    if (localStorage.getItem('localProjectData')) {
+    if (localStorage.getItem('localProjectData') && JSON.parse(localStorage.getItem('localProjectData')).length > 0) {
         console.log('Local data found.');
         return true;
     }
@@ -24,6 +24,7 @@ const loadLocal = () => {
         })
 
     const loadedCurrentProject = JSON.parse(localStorage.getItem('currentProject'));
+    console.log(loadedCurrentProject)
     Project.writeCurrentProject(loadedCurrentProject);
 
 
@@ -33,6 +34,7 @@ const loadLocal = () => {
 const initialRender = () => {
     if (findLocal()) {
         loadLocal();
+        console.log(Project.getCurrentProject());
         renderHeader();
         navRender();
         let loadedProj = Project.getPLib()[Project.getCurrentProject()-1];
@@ -47,13 +49,14 @@ const initialRender = () => {
     Project.pushPLib(new Project('New Project'))
     let loadedProj = Project.getPLib()[0]
     Project.getPLib().forEach( object => navItemRender(object));
+    Project.currentProject = 1;
     newProjectButton(loadedProj);
     renderMainView(loadedProj);
 
     console.log(Project.getPLib());
     localStorage.setItem('localProjectData', JSON.stringify(Project.getPLib()));
     localStorage.setItem('pLibraryIndex', Project.pLibraryIndex);
-    localStorage.setItem('currentProject', Project.getCurrentProject()+1);
+    localStorage.setItem('currentProject', Project.getCurrentProject());
 }
 
 export default initialRender

@@ -382,3 +382,23 @@ textarea {
 #addTask:active {
     font-size: 49px;
 }
+
+#deleteProject {
+    border: 0px;
+    font-family: 'Noto Sans', 'sans serif';
+    background-color: rgb(199, 97, 97);
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.651);
+    cursor: pointer;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    transition: .1s;
+}
+
+#deleteProject:hover {
+    background-color: rgb(247, 136, 136);
+    transition: .1s;
+}

@@ -38,6 +38,26 @@ const taskViewRender = (loadedProj) => {
         localStorage.setItem('localProjectData', localPData );
     })
 
+    let deleteProjectButton = document.createElement('button');
+    deleteProjectButton.id = 'deleteProject';
+    deleteProjectButton.type = 'button';
+    deleteProjectButton.innerHTML = 'Delete Project';
+    taskView.appendChild(deleteProjectButton);
+
+    deleteProjectButton.addEventListener('click', () => {
+        if (Project.getPLib().length == 1) {console.log('Cannot Delete Project when One Remains.'); return;}
+        const currentProj = Project.getPLib().indexOf(Project.getPLib()[Project.getCurrentProject()-1]);
+        document.getElementById('taskView').remove();
+        document.getElementById(`${Project.getPLib()[Project.getCurrentProject()-1].pId}`).remove();
+        Project.getPLib().splice(currentProj, 1);
+        Project.currentProject = Project.getPLib()[0].pId;
+        taskViewRender(Project.getPLib()[0]);
+        const localPData = JSON.stringify(Project.getPLib());
+        localStorage.setItem('localProjectData', localPData );
+        localStorage.setItem('currentProject', Project.currentProject);
+
+    })
+
 };
 
 export default taskViewRender;

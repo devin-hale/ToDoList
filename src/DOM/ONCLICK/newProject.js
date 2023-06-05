@@ -7,6 +7,7 @@ const renderNewProject = (object) => {
     Project.pushPLib(newProj);
     const localPData = JSON.stringify(Project.getPLib());
     localStorage.setItem('localProjectData', localPData );
+    localStorage.setItem('pLibraryIndex', Project.pLibraryIndex);
 
     const sideMenu = document.getElementById('sideMenu');
     
@@ -18,11 +19,14 @@ const renderNewProject = (object) => {
     projectDiv.id = newProj.pId;
 
             projectDiv.addEventListener('click', ebent => {
-                let targetProj = Project.getPLib()[ebent.target.id-1];
-                if (object == targetProj) {console.log('Project the Same');return}
-                document.getElementById('taskView').remove();
-                taskViewRender(targetProj);
-                var loadedObject = targetProj;
+                if (ebent.target === projectDiv){
+                    let targetProj = Project.getPLib()[ebent.target.id-1];
+                    if (ebent.target.id == Project.getCurrentProject()) {console.log('Project the Same');console.log(targetProj);return};
+                    document.getElementById('taskView').remove();
+                    taskViewRender(targetProj);
+                    Project.writeCurrentProject(ebent.target.id);
+                    localStorage.setItem('currentProject', ebent.target.id)
+                }
 
             })
         

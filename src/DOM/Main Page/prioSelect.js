@@ -30,7 +30,6 @@ const renderPrioSelect = (expDetails, projTask) => {
         prioSelectMid.addEventListener('click', () => {
             projTask.priority = 'Mid';
             document.getElementById(`task=${projTask.tID}`).style.color = '#fcd34d';
-            document.getElementById(`task=${projTask.tID}`).style.color = '#a3e635';
             const localPData = JSON.stringify(Project.getPLib());
             localStorage.setItem('localProjectData', localPData );
         })
@@ -43,7 +42,6 @@ const renderPrioSelect = (expDetails, projTask) => {
         prioSelectHigh.addEventListener('click', () => {
             projTask.priority = 'High';
             document.getElementById(`task=${projTask.tID}`).style.color = '#ef4444';
-            document.getElementById(`task=${projTask.tID}`).style.color = '#a3e635';
             const localPData = JSON.stringify(Project.getPLib());
             localStorage.setItem('localProjectData', localPData );
         })

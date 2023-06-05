@@ -18,6 +18,16 @@ export class Project {
 
     static taskID = 0;
 
+    static currentProject = 0;
+
+    static getCurrentProject() {
+        return Project.currentProject;
+    }
+
+    static writeCurrentProject(value) {
+        Project.currentProject = value;
+    }
+
     static pLibraryIndex = 0;    
 
     //Global storage of all projects.
@@ -26,6 +36,10 @@ export class Project {
     //Return Project Library.
     static getPLib() {
         return Project.pLibrary;
+    }
+
+    static setPLib(array) {
+        Project.pLibrary = array;
     }
 
     //Add an object to global project library.

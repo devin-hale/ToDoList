@@ -1,4 +1,4 @@
-
+import { Project } from "../../LOGIC/projects";
 
 const editTaskName = (editFlag, enterKeyPressed, taskCard_Name, taskDHeader, projTask) =>  {
     if (!editFlag) {

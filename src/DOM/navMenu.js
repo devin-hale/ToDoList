@@ -70,10 +70,14 @@ const navItemRender = (object) => {
         projectDiv.id = object.pId;
 
             projectDiv.addEventListener('click', ebent => {
-                let targetProj = Project.getPLib()[ebent.target.id-1];
-                if (object == targetProj) {console.log('Project the Same');return}
-                document.getElementById('taskView').remove();
-                taskViewRender(object);
+                if (ebent.target === projectDiv){
+                    let targetProj = Project.getPLib()[ebent.target.id-1];
+                    if (ebent.target.id == Project.getCurrentProject()) {return}
+                    document.getElementById('taskView').remove();
+                    taskViewRender(targetProj);
+                    Project.writeCurrentProject(ebent.target.id);
+                    localStorage.setItem('currentProject', ebent.target.id)
+                }
 
             })
         

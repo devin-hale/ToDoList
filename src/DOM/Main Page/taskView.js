@@ -31,8 +31,9 @@ const taskViewRender = (loadedProj) => {
     taskView.appendChild(addTaskButton);
 
     addTaskButton.addEventListener('click', () => {
-        let newTask = loadedProj.addTask('New Task', '', 'Low', '');
-        renderTasks(loadedProj.tasks[loadedProj.tasks.length-1]);
+        const currentProj = Project.getPLib()[Project.getCurrentProject()-1];
+        let newTask = currentProj.addTask('New Task', '', 'Low', '');
+        renderTasks(currentProj.tasks[loadedProj.tasks.length-1]);
         const localPData = JSON.stringify(Project.getPLib());
         localStorage.setItem('localProjectData', localPData );
     })

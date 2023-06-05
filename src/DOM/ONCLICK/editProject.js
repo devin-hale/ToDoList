@@ -40,6 +40,11 @@ const editProjectButton = (event) => {
             paragraph.classList = 'projectText';
             paragraph.textContent = event.target.value;
             Proj.pName = event.target.value;
+            if (event.target.parentNode.id == Project.getCurrentProject()) {
+                let targetProj = Project.getPLib()[event.target.parentNode.id-1];
+                document.getElementById('taskView').remove();
+                taskViewRender(targetProj);
+            }
             event.target.remove();
             projectDiv.appendChild(projectEdit);
             const localPData = JSON.stringify(Project.getPLib());
@@ -59,6 +64,11 @@ const editProjectButton = (event) => {
             paragraph.classList = 'projectText';
             paragraph.textContent = event.target.value;
             Proj.pName = event.target.value;
+            if (event.target.parentNode.id == Project.getCurrentProject()) {
+                let targetProj = Project.getPLib()[event.target.parentNode.id-1];
+                document.getElementById('taskView').remove();
+                taskViewRender(targetProj);
+            }
             event.target.remove();
             projectDiv.appendChild(projectEdit);
             enterKeyPressed = false;
